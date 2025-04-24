@@ -10,3 +10,4 @@ pywaffle
 seaborn
 scipy
 requests
+openpyxl
