@@ -38,14 +38,14 @@ def recommend_film(user_desc, df,desc_col,title_col):
     top_match = df.sort_values(by='similarity', ascending=False).iloc[0]
     return f"🎬 نرشح لك مشاهدة: **{top_match[title_col]}**\n\n📝 الوصف: {top_match[desc_col]}\n\n🔢 درجة التشابه: {top_match['similarity']:.2f}",top_match[title_col]
 
-st.image(r"C:\Users\Ayman\Pictures\Screenshots\Screenshot 2025-04-17 141645.png")
+st.image(r"Screenshot 2025-04-17 141645.png")
 st.title('Series | Movies App 🎥')
-st.image(r"C:\Users\Ayman\Downloads\d0fac8df-f671-45fe-b21a-0274b4d19e98.png")
-df = pd.read_excel(r"C:\Users\Ayman\Downloads\Data_films_cleaned.xlsx")
-with open(r"C:\Users\Ayman\Downloads\log_reg_model.pkl", 'rb') as model_file:
+st.image(r"d0fac8df-f671-45fe-b21a-0274b4d19e98.png")
+df = pd.read_excel(r"Data_films_cleaned.xlsx")
+with open(r"log_reg_model.pkl", 'rb') as model_file:
     best_estimator_Log = pickle.load(model_file)
 
-with open(r"C:\Users\Ayman\Downloads\embeddingss_films.pkl", 'rb') as emb_file:
+with open(r"embeddingss_films.pkl", 'rb') as emb_file:
     embeddings = pickle.load(emb_file)
 
 arabic_stopwords = ['و', 'في', 'من', 'إلى', 'على', 'عن', 'ذلك', 'أن', 'هل', 'لم', 'كان', 'الذي', 'التي', 'ال']
@@ -70,9 +70,9 @@ def get_embedding(text):
 select = st.sidebar.selectbox('Choose Option', ['None','Describtion Of Data','Sample Analysis','Sentiment Analysis','Machine Learning', 'Deep Learning','Summary Dashboard'])
 
 if select=='None':
-    st.image(r"C:\Users\Ayman\Downloads\ChatGPT Image Apr 16, 2025, 10_31_31 AM.png")
+    st.image(r"ChatGPT Image Apr 16, 2025, 10_31_31 AM.png")
 elif select=='Describtion Of Data':
-    st.sidebar.image(r"C:\Users\Ayman\Downloads\886ef944-5bc6-4b76-b532-5d22bd9404f7.png")
+    st.sidebar.image(r"886ef944-5bc6-4b76-b532-5d22bd9404f7.png")
     tabs=st.tabs(['Data Overview','Data Types','Statistics','Chi-Squared-Test'])
     with tabs[0]:
         st.dataframe(df.iloc[1:,:])
@@ -106,7 +106,7 @@ elif select=='Describtion Of Data':
     with tabs[2]:    
         col = st.selectbox('📌 Choose a Column', df.columns[2:])
 
-        st.image(r"C:\Users\Ayman\Downloads\f8f25929-3b17-4b96-ae41-32fe16d95c9d.png")
+        st.image(r"f8f25929-3b17-4b96-ae41-32fe16d95c9d.png")
 
         if pd.api.types.is_numeric_dtype(df[col]):
             st.subheader(f"🔍 Numerical Analysis for: `{col}`")
@@ -658,7 +658,7 @@ elif select == 'Deep Learning':
                     except Exception as e:
                         st.error(f"❌ حصل خطأ: {e}")
     with tabs[1]:
-        st.image(r"C:\Users\Ayman\Downloads\snapedit_1745518403105.jpeg")
+        st.image(r"snapedit_1745518403105.jpeg")
         st.title("🎬 ChatBot Analysis")
         
         
@@ -998,7 +998,7 @@ else:
     
 
     st.markdown("[🟢 Open Report in New Tab](https://app.powerbi.com/links/f_R1uWPbKY?ctid=eaf624c8-a0c4-4195-87d2-443e5d7516cd&pbi_source=linkShare)", unsafe_allow_html=True)
-    st.image(r"C:\Users\Ayman\Pictures\Screenshots\Screenshot 2025-04-17 171050.png")
+    st.image(r"Screenshot 2025-04-17 171050.png")
  
 
 
