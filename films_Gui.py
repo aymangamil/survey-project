@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd 
 from transformers import pipeline
 from sklearn.metrics.pairwise import cosine_similarity
-openai.api_key = "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"
+openai.api_key = "mk-proj-EbLF1eqg5pEJ1or_K6y1P8PCfF_nMIizBxz-J63BVyziKvkOuevEx-rA7hcOtQ3vEl5N_1UtNNT3BlbkFJ6N12YLEUBkakQ6woGQjylFTxedSgKhRPz6I4tgAZrVg5IM-N0wjMsiXwQrOJKobqKVmuar63YA"
 import plotly.graph_objects as go
 import plotly.express as px
 import matplotlib.pyplot as plt
