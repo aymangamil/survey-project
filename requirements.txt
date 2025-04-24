@@ -1,0 +1,12 @@
+openai
+streamlit
+pandas
+numpy
+scikit-learn
+transformers
+plotly
+matplotlib
+pywaffle
+seaborn
+scipy
+requests
