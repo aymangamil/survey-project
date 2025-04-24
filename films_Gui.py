@@ -779,7 +779,7 @@ elif select=='Sentiment Analysis':
     if select=='Movies And Series':
         tabs=st.tabs(['Opinions of people About Bad Movies And Series','Favourite Actors'])
         with tabs[0]:
-            data_resons=pd.read_excel(r"C:\Users\Ayman\Downloads\Dislikes_film.xlsx")
+            data_resons=pd.read_excel(r"Dislikes_film.xlsx")
             reason_categories = {
     "Story": [
          "story repeated", "well written script", "boring", "open ending",
