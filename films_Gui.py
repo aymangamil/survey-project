@@ -715,7 +715,6 @@ elif select == 'Deep Learning':
         Q: {question}
         """
 
-        # توليد الكود وتنفيذه وعرض النتيجة
         def run_analysis(question, df):
             prompt = build_prompt(question)
             response = openai.ChatCompletion.create(
@@ -729,7 +728,6 @@ elif select == 'Deep Learning':
             if "not related" in raw_code.lower():
                 return None, "❌ This question is not related to the dataset."
 
-            # إزالة backticks أو 'python' من البداية والنهاية لو فيه
             code = raw_code.strip("` \n")
             if code.lower().startswith("python"):
                 code = code[6:].strip()
@@ -738,13 +736,10 @@ elif select == 'Deep Learning':
                 local_vars = {'df': df}
 
                 if "\n" not in code and " = " not in code:
-                    # إذا كان سطر واحد وبسيط زي value_counts()
                     result = eval(code, {}, local_vars)
                 else:
-                    # كود معقد أو متعدد الأسطر – نستخدم exec
                     exec(code, {}, local_vars)
 
-                    # نطلع آخر قيمة مفيدة نعرضها
                     result = None
                     for val in reversed(local_vars.values()):
                         if isinstance(val, (pd.Series, pd.DataFrame, int, float, str)):
@@ -756,7 +751,6 @@ elif select == 'Deep Learning':
             except Exception as e:
                 return code, f"⚠️ Error in executing code:\n\n{e}"
 
-        # واجهة المستخدم
         question = st.text_input("💬 Ask a question about your data")
 
         if question:
@@ -816,7 +810,6 @@ elif select=='Sentiment Analysis':
                 with col:
                     checkbox_states[category] = st.checkbox(category)
 
-            # Show reasons under selected categories
             for category, selected in checkbox_states.items():
                 if selected:
                     st.subheader(f"🔹 {category}")
@@ -824,7 +817,6 @@ elif select=='Sentiment Analysis':
                         st.markdown(f"- {reason}")
                     selected_reasons.extend(reason_categories[category])
 
-            # Summary
             if selected_reasons:
                 st.markdown("---")
                 st.success(f"✅ {len(selected_reasons)} detailed reasons were selected that make people dislike films.")
@@ -832,7 +824,6 @@ elif select=='Sentiment Analysis':
             df=df[~(df['Favorite Actor']=='unknown')]
             top_actors = df['Favorite Actor'].value_counts().head(6)
 
-# روابط الصور للممثلين
             actor_images = {
     'Leonardo Dicaprio': 'https://sf2.closermag.fr/wp-content/uploads/closermag/2023/04/Leonardo-DiCaprio-au-66eme-Festival-de-Cannes-le-15-mai-2013-scaled-546x410.jpg',
     'Robert Downey Jr': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg/330px-Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg',
@@ -852,7 +843,6 @@ elif select=='Sentiment Analysis':
                 textposition='outside'
             ))
 
-            # إضافة الصور فوق كل عمود
             for i, actor in enumerate(top_actors.index):
                 if actor in actor_images:
                     fig.add_layout_image(
@@ -870,7 +860,6 @@ elif select=='Sentiment Analysis':
                         )
                     )
 
-            # إعدادات الشكل
             fig.update_layout(
                 title="🎭 Most Favorite Actors by Audience",
                 xaxis_title="Actor",
