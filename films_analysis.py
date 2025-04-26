@@ -786,7 +786,7 @@ elif select=='Sentiment Analysis':
             data_resons=pd.read_excel(r"Dislikes_film.xlsx")
             reason_categories = {
     "Story": [
-         "story repeated", "well written script", "boring", "open ending",
+         "story repeated","boring", "open ending",
         "short detail boring end", "hasnt fully cover detail", "weak storyline poor direction",
         "bad story", "bad ending lot action middle movie average egyptian production",
         "dislike movie bad writing weak character poor pacing overused clichés bad cgi forced message unnecessary sequel remake thing make movie feel unoriginal boring watch"
