@@ -1271,7 +1271,7 @@ elif select=='Summary Dashboard':
     
 
     st.markdown("[🟢 Open Report in New Tab](https://app.powerbi.com/links/f_R1uWPbKY?ctid=eaf624c8-a0c4-4195-87d2-443e5d7516cd&pbi_source=linkShare)", unsafe_allow_html=True)
-    st.image(r"C:\Users\Ayman\Pictures\Screenshots\Screenshot 2025-04-17 171050.png")
+    st.image(r"Screenshot 2025-04-17 171050.png")
 else:
     
     st.title("📊 Automated EDA Report")
