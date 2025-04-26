@@ -38,7 +38,7 @@ def recommend_film(user_desc, df,desc_col,title_col):
     top_match = df.sort_values(by='similarity', ascending=False).iloc[0]
     return f"🎬 نرشح لك مشاهدة: **{top_match[title_col]}**\n\n📝 الوصف: {top_match[desc_col]}\n\n🔢 درجة التشابه: {top_match['similarity']:.2f}",top_match[title_col]
 
-st.image(r"C:\Users\Ayman\Pictures\Screenshots\Screenshot 2025-04-17 141645.png")
+st.image(r"Screenshot 2025-04-17 141645.png")
 st.title('Series | Movies App 🎥')
 st.image(r"d0fac8df-f671-45fe-b21a-0274b4d19e98.png")
 df = pd.read_excel(r"Data_films_cleaned.xlsx")
