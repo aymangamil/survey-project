@@ -14,8 +14,7 @@ from pywaffle import Waffle
 import seaborn as sns
 from scipy.stats import chi2_contingency
 import requests
-import speech_recognition as sr
-import tempfile
+
 def get_embedding(text):
     response = openai.Embedding.create(
         input=text,
